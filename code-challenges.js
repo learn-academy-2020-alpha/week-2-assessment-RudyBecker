@@ -13,7 +13,15 @@ var num3 = -7
 // Expected output: "-7 is not divisble by three"
 
 
-
+const myFunction = (num) => {
+    if (num % 3 == 0) {return `${num} is divisible by three`
+	}
+	else { return `${num} is not divisible by three`
+    }
+}
+console.log(myFunction(num1))
+console.log(myFunction(num2))
+console.log(myFunction(num3))
 
 
 // --------------------2) Create a function that takes in the randomNouns variable and returns an array with all the words capitalized.
@@ -21,8 +29,9 @@ var num3 = -7
 var randomNouns = ["streetlamp", "potato", "teeth", "conclusion", "nephew", "temperature", "database"]
 // Expected output: ["Streetlamp", "Potato", "Teeth", "Conclusion", "Nephew", "Temperature", "Database"]
 
+const myCapitalizer = randomNouns.map(randomNouns => randomNouns.toUpperCase());
 
-
+console.log(myCapitalizer)
 
 
 // --------------------3) Create a function that takes in the mixedDataArray array and returns an array with ONLY NUMBERS sorted from least to greatest.
@@ -30,6 +39,9 @@ var randomNouns = ["streetlamp", "potato", "teeth", "conclusion", "nephew", "tem
 var mixedDataArray = [true, 8, "hello", 90, -8, null, 0, 46, 59, 107, "hey!"]
 // Expected output: [-8, 0, 8, 46, 59, 90, 107]
 
+var sortedDataArray = mixedDataArray.filter((Number) => parseInt(Number) == Number);
+
+console.log(sortedDataArray.sort());
 
 
 
@@ -39,15 +51,54 @@ var mixedDataArray = [true, 8, "hello", 90, -8, null, 0, 46, 59, 107, "hey!"]
 
 var vowelTester1 = "learn"
 // Expected output: 1
-var vowelTester1 = "throw"
+var newVowelTester1 = vowelTester1.split("")
+var vowels = ["a","e","i","o","u"]
+
+var vowelTester2 = "throw"
 // Expected output: 3
+var newVowelTester2 = vowelTester2.split("")
 
+function findCommonElement1(array1, array2) {
 
+    // Loop for array1
+    for(let i = 0; i < array1.length; i++) {
 
+        // Loop for array2
+        for(let j = 0; j < array2.length; j++) {
 
+            // Compare the element of each and
+            // every element from both of the
+            // arrays
+            if(array1[i] == array2[j]) {
+                return i;
+            }
+        }
+    }
+    return false;
+}
+
+console.log(findCommonElement1(newVowelTester1,vowels))
+console.log(findCommonElement1(newVowelTester2,vowels))
 
 
 // --------------------5) Create a function that takes three arguments - two numbers and a mathematical operation (+, -, *, /) and performs the given calculation. If the input tries to divide by 0, return: "Can't divide by 0!"
+
+const calculator = (num1,operator, num2) => {
+	if (operator == "/" && (num1==0 || num2==0)){
+		return "Can't divide by 0!";
+	}
+	else if (operator == "+") {
+		return num1 + num2;
+    }
+  else if (operator == "-") {
+    return  num1 - num2;
+	} else if (operator == "*") {
+		return num1 * num2;
+    }
+		else if (operator == "/") {
+			return num1 / num2;
+		}
+};
 
 
 
